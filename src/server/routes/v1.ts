@@ -37,5 +37,6 @@ v1.openapi(productRoutes.findBy, productHandlers.findBy);
 
 // Auth
 v1.openapi(authRoutes.getAuthorizationUrl, authHandlers.getAuthorizationUrl);
+v1.openapi(authRoutes.exchangeCodeForToken, authHandlers.exchangeCodeForToken);
 
 export default v1;
