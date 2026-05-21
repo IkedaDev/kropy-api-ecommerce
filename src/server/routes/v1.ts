@@ -4,6 +4,14 @@ import {
   healthHandlers,
   healthRouter,
 } from "@modules/health/presentation/health.routes.js";
+import {
+  productHandlers,
+  productRoutes,
+} from "@modules/products/presentation/product.routes.js";
+import {
+  authHandlers,
+  authRoutes,
+} from "@modules/auth/presentation/auth.routes.js";
 
 import { generalLimiter } from "@server/middlewares/rate-limit.middleware.js";
 
@@ -24,5 +32,10 @@ v1.use("/*", generalLimiter);
 
 // Health
 v1.openapi(healthRouter.healthCheck, healthHandlers.healthCheck);
+
+v1.openapi(productRoutes.findBy, productHandlers.findBy);
+
+// Auth
+v1.openapi(authRoutes.getAuthorizationUrl, authHandlers.getAuthorizationUrl);
 
 export default v1;
